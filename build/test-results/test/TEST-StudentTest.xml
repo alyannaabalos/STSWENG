@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="StudentTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-02-01T13:26:36" hostname="alyannas-air" time="0.043">
+<testsuite name="StudentTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-02-01T13:46:54" hostname="alyannas-air" time="0.087">
   <properties/>
-  <testcase name="enlist_2_sections_same_schedule()" classname="StudentTest" time="0.043"/>
+  <testcase name="enlist_2_sections_same_schedule()" classname="StudentTest" time="0.087"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
