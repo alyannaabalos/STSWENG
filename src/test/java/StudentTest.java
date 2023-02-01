@@ -1,10 +1,13 @@
 import org.junit.jupiter.api.Test;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class StudentTest {
+
     @Test
     void enlist_2_sections_no_conflict() {
         //Given 1 student and 2 sections w/o conflict

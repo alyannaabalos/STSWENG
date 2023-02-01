@@ -1,3 +1,5 @@
+import org.apache.commons.lang3.Validate;
+
 import java.util.*;
 
 class Student {
@@ -25,12 +27,19 @@ class Student {
     }
 
     //Enlist a student to a section
-    void enlist(Section section){
-        if (section==null){
-            throw new NullPointerException("Section should not be null");
-        }
+    void enlist(Section newSection){
+        Validate.notNull(newSection);
 
-        this.sections.add(section);
+        // loop through sections, check for same sched
+        sections.forEach( currSection -> {
+            if (currSection.getSchedule().equals(newSection.getSchedule())){
+                throw new RuntimeException("current section" + currSection +
+                        " has same schedule as new section" + newSection +
+                        " at schedule " + currSection.getSchedule());
+            }
+        });
+
+        this.sections.add(newSection);
     }
 
     //getters and setters

@@ -25,6 +25,10 @@ class Section {
         this.schedule = schedule;
     }
 
+    Schedule getSchedule() {
+        return schedule;
+    }
+
     //toString
     @Override
     public String toString() {

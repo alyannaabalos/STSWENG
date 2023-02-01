@@ -2,7 +2,7 @@ Schedule.java
  Days
  Period
  Schedule
-Student.java
- Student
 Section.java
  Section
+Student.java
+ Student
