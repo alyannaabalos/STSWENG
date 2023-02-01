@@ -3,7 +3,7 @@ import java.util.*;
 class Student {
 
     private final int studentNumber;
-    private final Collection<Section> sections = new ArrayList<>();
+    private final Collection<Section> sections = new HashSet<>();
 
     Student(int studentNumber, Collection<Section> sections) {
         //validate if negative
@@ -29,6 +29,7 @@ class Student {
         if (section==null){
             throw new NullPointerException("Section should not be null");
         }
+
         this.sections.add(section);
     }
 
