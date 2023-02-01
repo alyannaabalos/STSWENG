@@ -1,14 +1,14 @@
-import org.apache.commons.lang3.Validate;
-
 import java.util.Objects;
+
+import static org.apache.commons.lang3.Validate.notNull;
 
 class Schedule {
     private final Days days;
     private final Period period;
 
     Schedule(Days days, Period period) {
-        Validate.notNull(days);
-        Validate.notNull(period);
+        notNull(days);
+        notNull(period);
         this.days = days;
         this.period = period;
     }
