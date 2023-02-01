@@ -21,6 +21,12 @@ class Section {
         this.sectionId = sectionId;
     }
 
+    //toString
+    @Override
+    public String toString() {
+        return sectionId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
