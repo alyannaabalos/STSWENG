@@ -2,23 +2,27 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.Objects;
 
-import static org.apache.commons.lang3.Validate.isTrue;
-import static org.apache.commons.lang3.Validate.notBlank;
+import static org.apache.commons.lang3.Validate.*;
 
 
 class Section {
     private final String sectionId;
-    //check
+    private final Schedule schedule;
 
-    Section(String sectionId) {
+    //check
+    Section(String sectionId, Schedule schedule) {
         //validate if null or whitespace
         notBlank(sectionId);
+
+        //validate schedule
+        notNull(schedule);
 
         //validate if alphanumeric
         isTrue(StringUtils.isAlphanumeric(sectionId),
                 "sectionID must be alphanumeric, was: " + sectionId );
 
         this.sectionId = sectionId;
+        this.schedule = schedule;
     }
 
     //toString
@@ -26,6 +30,7 @@ class Section {
     public String toString() {
         return sectionId;
     }
+
 
     @Override
     public boolean equals(Object o) {
@@ -37,6 +42,8 @@ class Section {
 
     @Override
     public int hashCode() {
-        return Objects.hash(sectionId);
+        return sectionId != null ? sectionId.hashCode() : 0;
     }
 }
+
+

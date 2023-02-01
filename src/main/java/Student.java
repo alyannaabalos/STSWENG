@@ -35,7 +35,7 @@ class Student {
 
     //getters and setters
     Collection<Section> getSections() {
-        return sections;
+        return new ArrayList<>(sections);
     }
 
     @Override

@@ -1,15 +1,16 @@
 import org.junit.jupiter.api.Test;
 
-import java.util.Collection;
-import java.util.Collections;
+import java.util.*;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class StudentTest {
     @Test
-    void enlist_2_sections_same_schedule() {
+    void enlist_2_sections_no_conflict() {
         //Given 1 student and 2 sections w/o conflict
         Student student = new Student(1, Collections.emptyList());
-        Section sec1 = new Section("A");
-        Section sec2 = new Section("B");
+        Section sec1 = new Section("A", new Schedule(Days.MTH, Period.H1000));
+        Section sec2 = new Section("B", new Schedule(Days.MTH, Period.H0830));
 
         //When student enlists in both sections
         student.enlist(sec1);
@@ -18,7 +19,24 @@ class StudentTest {
         // Then the 2 sections should be found
         //and student should only have 2 sections
         Collection<Section> sections = student.getSections();
+        assertAll(
+                () -> assertTrue(sections.containsAll(List.of(sec1, sec2))),
+                () -> assertEquals(2, sections.size())
+        );
+    }
 
+    @Test
+    void enlist_2_sections_same_schedule() {
+        //Given a student and 2 sections w/ same sched
+        Student student = new Student(1, Collections.emptyList());
+        Section sec1 = new Section("A", new Schedule(Days.MTH, Period.H1000));
+        Section sec2 = new Section("B", new Schedule(Days.MTH, Period.H1000));
+
+        //When student enlists in 2 sections
+        student.enlist(sec1);
+
+        //Then on the 2nd enlistment, throw exception
+        assertThrows(Exception.class, () -> student.enlist(sec2));
     }
 
 }
