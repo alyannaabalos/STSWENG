@@ -44,11 +44,34 @@ class StudentTest {
 
     @Test
     void enlist_full_section(){
+        //Given 2 students
         Student student1 = new Student(12011843, Collections.emptyList());
         Student student2 = new Student(12011754, Collections.emptyList());
+
+        //When student 1 enlists in section with max capacity 1
         Section sec1 = new Section("C", new Schedule(Days.MTH, Period.H1000), new Room("S13", 1));
         student1.enlist(sec1);
+
+        //Then student 2 should not be able to enlist
         assertThrows(Exception.class, () -> student2.enlist(sec1));
+    }
+
+    @Test
+    void cancel_enlisted_section() {
+        //Given a student and section
+        Student student1 = new Student(12033454, Collections.emptyList());
+        Section sec1 = new Section("D", new Schedule(Days.MTH, Period.H1000), new Room("X05", 43));
+
+        //When student enlists in the section then cancels
+        student1.enlist(sec1);
+        student1.cancel(sec1);
+
+        //The student should no longer be enlisted in the section
+        Collection<Section> sections = student1.getSections();
+        assertAll(
+                () -> assertFalse(sections.contains(sec1)),
+                () ->assertEquals(0, sections.size())
+        );
     }
 
 }

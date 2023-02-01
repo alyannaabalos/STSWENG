@@ -39,7 +39,22 @@ class Student {
             }
         });
 
+        //check room capacity
+        newSection.getRoom().maxCapacity();
         this.sections.add(newSection);
+        newSection.getRoom().addCount();
+    }
+
+    //Cancel enlisted section
+    void cancel(Section section){
+        Validate.notNull(section);
+        if (this.sections.contains(section)){
+            section.getRoom().minusCount();
+            sections.remove(section);
+        }
+        else {
+            throw new IllegalArgumentException("You are not enrolled in section " + section);
+        }
     }
 
     //getters and setters

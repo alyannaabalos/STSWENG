@@ -30,6 +30,14 @@ class Section {
         this.room = room;
     }
 
+
+    void checkForConflict(Section other) {
+        if (this.schedule.equals(other.schedule)) {
+            throw new IllegalArgumentException("this section " + this + "has same schedule as other section" + other
+                    + "at schedule " + schedule);
+        }
+    }
+
     Schedule getSchedule() {
         return schedule;
     }

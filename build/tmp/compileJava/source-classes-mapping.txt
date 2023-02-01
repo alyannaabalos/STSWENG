@@ -1,5 +1,3 @@
-Room.java
- Room
 Schedule.java
  Days
  Period
@@ -8,3 +6,5 @@ Student.java
  Student
 Section.java
  Section
+Room.java
+ Room
