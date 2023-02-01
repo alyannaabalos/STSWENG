@@ -33,6 +33,10 @@ class Student {
         this.sections.add(section);
     }
 
+    //getters and setters
+    Collection<Section> getSections() {
+        return sections;
+    }
 
     @Override
     public String toString(){
